@@ -1,0 +1,14 @@
+body {
+  padding-top: 50px;
+}
+th {
+  text-align: center;
+}
+#table-container {
+  width: 70%;
+  margin: auto;
+}
+.todo_form {
+  margin: auto;
+  text-align: center;
+}
