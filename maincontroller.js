@@ -1,13 +1,11 @@
 app.controller("MainController", function($scope){
-  $scope.people = [
-    { id: 0, name: 'Leon', music: [ 'Rock', 'Metal', 'Dubstep', 'Electro' ], live: true },
-    { id: 1, name: 'Chris', music: [ 'Indie', 'Drumstep', 'Dubstep', 'Electro' ], live: true },
-    { id: 2, name: 'Harry', music: [ 'Rock', 'Metal', 'Thrash Metal', 'Heavy Metal' ], live: false },
-    { id: 3, name: 'Allyce', music: [ 'Pop', 'RnB', 'Hip Hop' ], live: true } ];
-  $scope.newPerson = null;
+  $scope.tasks = [
+    { id: 0, name: 'Comprar pao' },
+    { id: 1, name: 'Estudar angular' }, ];
+  $scope.newTask = null;
   $scope.addNew = function() {
-    if ($scope.newPerson != null && $scope.newPerson != "") {
-      $scope.people.push({ id: $scope.people.length, name: $scope.newPerson, live: true, music: [] });
+    if ($scope.newTask != null && $scope.newTask != "") {
+      $scope.tasks.push({ id: $scope.tasks.length, name: $scope.newTask});
     }
   }
 });
