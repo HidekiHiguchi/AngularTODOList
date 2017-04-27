@@ -21,10 +21,10 @@ app.controller("MainController", function($scope){
   }
   $scope.removeFromList = function(id) {
     $scope.tasks.splice(id, 1);
-    var i = 0;
-    for (i; i < $scope.tasks.length; i++) {
-      $scope.tasks[i].id = i;
-    }
+    // var i = 0;
+    // for (i; i < $scope.tasks.length; i++) {
+    //   $scope.tasks[i].id = i;
+    // }
   }
 
 

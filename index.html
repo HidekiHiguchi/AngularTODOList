@@ -44,7 +44,7 @@
               <td>{{task.name}}</td>
               <td>{{task.descricao}}</td>
               <td>{{task.ativ_data}}</td>
-              <td><a ng-click='removeFromList(task.id)'>remove</a></td>
+              <td><a ng-click='removeFromList($index)'>remove</a></td>
             </tr>
           </tbody>
         </table>
