@@ -1,61 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="angularTodoList">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Starter Template - Materialize</title>
 
-    <title>TODO LIST</title>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="app.module.js"></script>
-    <script src="todo-list/todo-list.module.js"></script>
-    <script src="todo-list/add-modal.module.js"></script>
-    <script src="todo-list/todo-list.component.js"></script>
-    <script src="todo-list/add-modal.component.js"></script>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="bower_components/materialize/dist/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+  <script src="app.js" type="text/javascript"></script>
+  <script src="maincontroller.js" type="text/javascript"></script>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">TODO</a>
+      <ul class="right hide-on-med-and-down">
+      </ul>
 
-  </head>
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Angular TODO List</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
     <div class="container">
+      <br><br>
 
-      <div class="todo_form">
-        <h1>Let's do something!</h1>
-        <p class="lead">TODO LIST</p>
-        <div id="table-container">
-          <todo-list></todo-list>
-        </div>
+      <div id='content' ng-app='MyTutorialApp' ng-controller='MainController'>
+        <input type='text' ng-model='searchText' />
+        <ul class='collection with-header'>
+          <li class='collection-header'><h4>Atividades</h4></li>
+          <li class='collection-item' ng-repeat='person in people | filter:searchText' ng-show='person.live == true'>#{{person.id}} {{person.name}}</li>
+        </ul>
+        <input type='text' ng-model='newPerson' placeholder="nome" />
+        <button class='btn-floating btn-large waves-effect waves-light red' ng-click='addNew()'>Add</button>
+        <br><br>
       </div>
 
-      <add-modal></add-modal>
-    </div><!-- /.container -->
+    </div>
+  </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+  <div class="container">
+
+  </div>
+
+  <footer class="page-footer orange">
+
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="bower_components/jquery/dist/jquery-2.1.1.min.js"></script>
+  <script src="bower_components/materialize/dist/js/materialize.js"></script>
+  <script src="bower_components/materialize/dist/js/init.js"></script>
+
   </body>
 </html>
