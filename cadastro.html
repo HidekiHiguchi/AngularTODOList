@@ -1,0 +1,30 @@
+
+<br><br>
+
+<div id='add_form'>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="nome_ativ" ng-model='newTask' type="text" class="validate">
+      <label class="active" for="nome_ativ">Atividade</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="desc" type="text" ng-model='descricao' class="validate">
+      <label class="active" for="desc">Descricao</label>
+    </div>
+  </div>
+
+
+  <!-- <div class="row">
+    <div class="input-field col s6">
+      <input type="date" class="datepicker" ng-model='ativData' id="ativData">
+      <label class="active" for="ativData">Data</label>
+    </div>
+  </div> -->
+
+  <button class='btn-floating btn-large waves-effect waves-light red' ng-click='addNew()'>Add</button>
+  <br><br>
+</div>

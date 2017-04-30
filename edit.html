@@ -1,0 +1,30 @@
+
+<br><br>
+
+<div id='add_form'>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="editNome" ng-model='editNome' type="text" ng-init="editNome = scope.tasks[variaveis.getEdit()].name">
+      <label class="active" for="nome_ativ">Atividade</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <input id="editDescricao" type="text" ng-model='editDescricao' ng-init='editDescricao = scope.tasks[variaveis.getEdit()].descricao'>
+      <label class="active" for="desc">Descricao</label>
+    </div>
+  </div>
+
+
+  <!-- <div class="row">
+    <div class="input-field col s6">
+      <input type="date" class="datepicker" ng-model='editAtivData' value='{{scope.tasks[tID].ativData}}' id="ativData">
+      <label class="active" for="ativData">Data</label>
+    </div>
+  </div> -->
+
+  <button class='btn-floating btn-large waves-effect waves-light red' ng-click='editAtiv()'>Add</button>
+  <br><br>
+</div>
