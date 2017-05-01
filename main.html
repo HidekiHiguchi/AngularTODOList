@@ -15,7 +15,7 @@
         <td>{{task.name}}</td>
         <td>{{task.descricao}}</td>
         <!-- <td>{{task.ativData}}</td> -->
-        <td><a ng-click='setUrlToEdit($index)'>edit</a> | <a ng-click='removeFromList($index)'>remove</a></td>
+        <td><a ng-click='setUrlToEdit(task.id)'>edit</a> | <a ng-click='removeFromList(task.id)'>remove</a></td>
       </tr>
     </tbody>
   </table>

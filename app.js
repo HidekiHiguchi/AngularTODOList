@@ -6,7 +6,7 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: 'cadastro.html',
     controller: 'CadastroController'
   })
-  .when('/edit', {
+  .when('/edit/:id', {
     templateUrl: 'edit.html',
     controller: 'EditController'
   })
@@ -21,15 +21,62 @@ app.config(function($routeProvider, $locationProvider) {
   });
 });
 
-app.service('variaveis', function () {
-    var edit = null
+
+app.service('Incremento', function () {
+    var incremento = 1;
 
     return {
-        getEdit: function () {
-            return edit;
+        getNewID: function () {
+          incremento++;
+          return incremento;
+        }
+    };
+});
+
+
+app.service('TaskService', function () {
+    var tasks = [
+      { id: 0, name: 'Comprar pao', descricao: 'ir ate a padaria e comprar pao', ativData: '28/04',},
+      { id: 1, name: 'Estudar angular', descricao: 'ler a documentacao denovo', ativData: '28/04',}];
+
+    return {
+        getTasks: function () {
+          return tasks;
         },
-        setEdit: function(value) {
-            edit = value;
+        add: function(task) {
+          tasks.push(task);
+        },
+
+        remove: function(id) {
+
+          var i = 0;
+          for (t of tasks) {
+            if(t.id == id) {
+              tasks.splice(i, 1);
+            }
+            i++;
+          }
+
+
+        },
+
+        edit: function(task) {
+          var i = 0;
+          for (t of tasks) {
+            if(t.id == task.id)
+              tasks[i] = task;
+            i++;
+          }
+
+        },
+        getTaskByID: function(id) {
+          var i = 0;
+          for (t of tasks) {
+            if(t.id == id)
+              return tasks[i];
+            i++;
+          }
+          return null;
         }
     };
 });
