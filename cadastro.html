@@ -1,11 +1,15 @@
+<a class="waves-effect waves-light btn blue lighten-2" ng-click="$location.path('/lista')">Voltar</a>
 <br>
+<br>
+<div style="color:red;" ng-if="errorMessage">{{errorMessage}}</div>
+<div style="color:green;" ng-if="sucessMessage">{{sucessMessage}}</div>
 <br>
 
 <div id='add_form'>
 
   <div class="row">
     <div class="input-field col s6">
-      <input id="editNome" ng-model='task.name' type="text">
+      <input id="editNome" ng-model='task.name' type="text" required>
       <label class="active" for="nome_ativ">Atividade</label>
     </div>
   </div>
@@ -24,7 +28,7 @@
       <label class="active" for="ativData">Data</label>
     </div>
   </div> -->
-
-  <button class='btn-floating btn-large waves-effect waves-light red' ng-click='taskCtrl()'>Add</button>
+  <br>
+  <button class=' btn waves-effect waves-light green' ng-click='taskCtrl()'>Salvar</button>
   <br><br>
 </div>

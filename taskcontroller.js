@@ -2,8 +2,14 @@ app.controller('TaskController', function($scope, $routeParams, $location, TaskS
   $scope.name = 'TaskController';
   $scope.params = $routeParams;
 
+$scope.taskCtrl = taskCtrl;
 
-  $scope.taskCtrl = function() {
+$scope.editAtiv = editAtiv;
+
+$scope.addNew = addNew;
+
+
+  function taskCtrl() {
     if ($routeParams.id) {
       $scope.editAtiv();
     } else {
@@ -14,25 +20,35 @@ app.controller('TaskController', function($scope, $routeParams, $location, TaskS
 
   $scope.task = TaskService.getTaskByID($routeParams.id);
 
-  $scope.editAtiv = function() {
+  function editAtiv() {
 
     TaskService.edit($scope.task);
     $location.path('/lista');
 
   }
 
+  function addNew() {
+
+      if ($scope.task && $scope.task.name) {
+        TaskService.add({
+          id: Incremento.getNewID(),
+          name: $scope.task.name,
+          descricao: $scope.task.descricao,
+          ativData: $scope.task.ativData
+        })
+        $scope.sucessMessage = "Task: "+$scope.task.name+" foi adicionada com sucesso!";
+        $scope.errorMessage = null;
+        $scope.task.name = null;
+        $scope.task.descricao = null;
+        $scope.task.ativData = null;
+      } else {
+        $scope.errorMessage = "Pelo menos o nome deve ser preenchido";
+        $scope.sucessMessage = null;
+      }
 
 
-  $scope.addNew = function() {
-    if ($scope.task) {
-      TaskService.add({
-        id: Incremento.getNewID(),
-        name: $scope.task.name,
-        descricao: $scope.task.descricao,
-        ativData: $scope.task.ativData
-      })
-    }
-    $location.path('/lista');
+
+
   }
 
 
